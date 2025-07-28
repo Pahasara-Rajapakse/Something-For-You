@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Boobie Girl 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px #ff6f91;
+    }
+
+    .countdown {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+
+    #unlockButton {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #fff;
+      color: #ee3e6d;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+      margin-top: 20px;
+      box-shadow: 0 0 15px #fff;
+    }
+
+    #waitMsg {
+      font-size: 16px;
+      margin-top: 10px;
+      color: #fff3f3;
+    }
+
+    .slideshow {
+      max-width: 500px;
+      margin: 30px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide img {
+      width: 100%;
+    }
+
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy 24th Birthday Boobie Girl 💖</h1>
+  <div class="countdown" id="countdown"></div>
+  <div id="waitMsg">Please wait until July 29 midnight to unlock your surprise 🎁</div>
+  <button id="unlockButton" onclick="showContent()">Click to Reveal Your Surprise 🎁</button>
+
+  <div id="content" style="display:none">
+    <p>
+      From the moment you walked into my life, everything changed......
+      your smile is the sunshine that lights up even my darkest days. On your 24th birthday,
+      I just want to say how proud I am of the beautiful, strong, and kind soul you are.
+    </p>
+    <p>
+      I call you my Boobie Girl not just out of love, but because you're the one who fills my heart
+      with warmth, laughter, and endless happiness.
+    </p>
+    <p>
+      No matter where life takes us, know that I’ll always be right beside you,
+      loving you, cheering you on, and cherishing every little moment with you.
+      You deserve the entire universe, and I’ll spend my life trying to give you just that.
+    </p>
+    <p>
+      Happy Birthday, baby girl. Let’s make today unforgettable 🌛 (All the above words are bullshit......)
+    </p>
+
+    <div class="slideshow">
+      <div class="slide"><img src="IMG-20250407-WA0001.jpg" alt="Slide 1"></div>
+      <div class="slide"><img src="IMG-20250325-WA0033.jpg" alt="Slide 2"></div>
+      <div class="slide"><img src="IMG-20250213-WA0005.jpg" alt="Slide 3"></div>
+      <div class="slide"><img src="IMG-20250407-WA0007.jpg" alt="Slide 4"></div>
+      <div class="slide"><img src="IMG-20250412-WA0007.jpg" alt="Slide 5"></div>
+      <div class="slide"><img src="IMG-20250412-WA0015.jpg" alt="Slide 6"></div>
+      <div class="slide"><img src="IMG-20250416-WA0009.jpg" alt="Slide 7"></div>
+      <div class="slide"><img src="IMG-20250416-WA0015.jpg" alt="Slide 8"></div>
+      <div class="slide"><img src="IMG-20250419-WA0001.jpg" alt="Slide 9"></div>
+      <div class="slide"><img src="IMG-20250511-WA0003.jpg" alt="Slide 10"></div>
+      <div class="slide"><img src="IMG-20250712-WA0011.jpg" alt="Slide 11"></div>
+      <div class="slide"><img src="IMG-20250712-WA0020.jpg" alt="Slide 12"></div>
+      <div class="slide"><img src="IMG-20250712-WA0021.jpg" alt="Slide 13"></div>
+      <div class="slide"><img src="IMG-20250712-WA0030.jpg" alt="Slide 14"></div>
+      <div class="slide"><img src="IMG-20250712-WA0031.jpg" alt="Slide 15"></div>
+    </div>
+
+    <audio id="birthdayAudio" autoplay loop>
+      <source src="song.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const countdown = document.getElementById("countdown");
+    const button = document.getElementById("unlockButton");
+    const content = document.getElementById("content");
+    const waitMsg = document.getElementById("waitMsg");
+
+    const releaseDate = new Date("July 29, 2025 00:00:00").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = releaseDate - now;
+
+      if (diff <= 0) {
+        clearInterval(interval);
+        countdown.innerHTML = "It's time! 🎉";
+        button.style.display = "inline-block";
+        waitMsg.style.display = "none";
+      } else {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+      }
+    }, 1000);
+
+    function showContent() {
+      content.style.display = "block";
+      button.style.display = "none";
+      startSlideshow();
+      const audio = document.getElementById("birthdayAudio");
+      audio.play();
+    }
+
+    function startSlideshow() {
+      let slideIndex = 0;
+      const slides = document.getElementsByClassName("slide");
+      setInterval(() => {
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].style.display = "block";
+      }, 3000);
+      slides[0].style.display = "block";
+    }
+  </script>
+</body>
+</html>
